@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI Chatbot</title>
+  <link rel="stylesheet" href="/static/style.css" />
+</head>
+<body>
+  <div class="background-animation"></div>
+
+  <main class="chat-container" role="main">
+    <header class="chat-header">
+      <div class="header-info">
+        <div class="header-icon" aria-hidden="true">🤖</div>
+        <div>
+          <h1>AI Chatbot</h1>
+          <p>Powered by DialoGPT</p>
+        </div>
+      </div>
+      <button id="clear-btn" type="button" aria-label="Clear chat">🗑 Clear</button>
+    </header>
+
+    <section id="chat-messages" class="chat-messages" aria-live="polite">
+      <div class="message bot-message">
+        <div class="message-avatar" aria-hidden="true">🤖</div>
+        <div class="message-bubble bot-bubble">
+          <p>Hello! I'm an AI chatbot. How can I help you today?</p>
+        </div>
+      </div>
+    </section>
+
+    <footer class="input-area">
+      <form id="chat-form" novalidate>
+        <div class="input-wrapper">
+          <input
+            id="user-input"
+            type="text"
+            placeholder="Type your message..."
+            maxlength="{{ max_length or 500 }}"
+            autocomplete="off"
+            required
+          />
+          <button id="send-btn" type="submit" aria-label="Send message">➤</button>
+        </div>
+        <div id="char-counter" class="char-counter">0/{{ max_length or 500 }}</div>
+      </form>
+    </footer>
+  </main>
+
+  <script src="/static/script.js"></script>
+</body>
+</html>
